@@ -40,7 +40,7 @@ namespace DigitNeuralNetwork
                 {
                     Button button = new Button();
                     //button.Background = Brushes.LightGray;
-                    button.Click += Button_Click;
+                    //button.IsEnabled = false;
                     button.HorizontalAlignment = HorizontalAlignment.Stretch;
                     button.VerticalAlignment = VerticalAlignment.Stretch;
                     Grid.SetRow(button, i);
@@ -61,14 +61,7 @@ namespace DigitNeuralNetwork
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Button button = sender as Button;
-            if (button.Background == Brushes.LightGray)
-                button.Background = Brushes.Black;
-            else button.Background = Brushes.LightGray;
-            //throw new NotImplementedException();
-        }
+        
 
         private void BtnOpenFile_Click(object sender, RoutedEventArgs e)
         {
