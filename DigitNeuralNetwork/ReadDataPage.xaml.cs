@@ -20,6 +20,7 @@ namespace DigitNeuralNetwork
     /// <summary>
     /// Logika interakcji dla klasy ReadDataPage.xaml
     /// </summary>
+    /// TEST
     public partial class ReadDataPage : Page
     {
         IEnumerable<byte> readedBytes;
