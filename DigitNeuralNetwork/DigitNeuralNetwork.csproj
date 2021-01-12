@@ -55,6 +55,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Category.cs" />
+    <Compile Include="NeuralNetwork.cs" />
+    <Compile Include="NeuralVisualizer.xaml.cs">
+      <DependentUpon>NeuralVisualizer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ReadDataPage.xaml.cs">
       <DependentUpon>ReadDataPage.xaml</DependentUpon>
     </Compile>
@@ -73,6 +78,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="NeuralVisualizer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ReadDataPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -108,5 +117,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

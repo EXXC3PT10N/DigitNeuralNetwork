@@ -37,5 +37,10 @@ namespace DigitNeuralNetwork
         {
             MainFrame.Navigate(new ReadDataPage());
         }
+
+        private void BtnNeuralNetwork_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new NeuralVisualizer());
+        }
     }
 }

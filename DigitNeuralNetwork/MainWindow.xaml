@@ -8,8 +8,9 @@
         Title="MainWindow" Height="600" Width="700">
     <Grid Background="#FF636060">
         <Frame x:Name="MainFrame" Content="Frame" HorizontalAlignment="Stretch" Height="auto" Margin="0,40,0,0" VerticalAlignment="Stretch" Width="auto" NavigationUIVisibility="Hidden" Source="WriteDataPage.xaml"/>
-        <Button x:Name="BtnWriteData" Content="Write Data" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="76" RenderTransformOrigin="-0.27,0.625" Click="BtnWriteData_Click"/>
-        <Button x:Name="BtnReadData" Content="Read Data" HorizontalAlignment="Left" Margin="110,10,0,0" VerticalAlignment="Top" Width="76" RenderTransformOrigin="-0.27,0.625" Click="BtnReadData_Click"/>
+        <Button x:Name="BtnWriteData" Content="Write Data" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.27,0.625" Click="BtnWriteData_Click"/>
+        <Button x:Name="BtnReadData" Content="Read Data" HorizontalAlignment="Left" Margin="110,10,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.27,0.625" Click="BtnReadData_Click"/>
+        <Button x:Name="BtnNeuralNetwork" Content="Neural Network" HorizontalAlignment="Left" Margin="210,10,0,0" VerticalAlignment="Top" Width="75" Click="BtnNeuralNetwork_Click"/>
 
     </Grid>
 </Window>
