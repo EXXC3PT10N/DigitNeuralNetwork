@@ -56,6 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Category.cs" />
+    <Compile Include="LabeledImage.cs" />
     <Compile Include="NeuralNetwork.cs" />
     <Compile Include="NeuralVisualizer.xaml.cs">
       <DependentUpon>NeuralVisualizer.xaml</DependentUpon>
@@ -63,6 +64,8 @@
     <Compile Include="ReadDataPage.xaml.cs">
       <DependentUpon>ReadDataPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ShuffleListExtension.cs" />
+    <Compile Include="ThreadSafeRandom.cs" />
     <Compile Include="WriteDataPage.xaml.cs">
       <DependentUpon>WriteDataPage.xaml</DependentUpon>
     </Compile>

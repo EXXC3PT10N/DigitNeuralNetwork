@@ -37,5 +37,6 @@
         <Button x:Name="BtnClear" Content="Wyczysc" HorizontalAlignment="Left" Margin="440,12,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.46,1.148" Click="BtnClear_Click"/>
         <Button x:Name="BtnSavePixels"  Content="Zapisz" HorizontalAlignment="Left" Margin="520,12,0,0" VerticalAlignment="Top" Width="74" Click="BtnSavePixels_Click"/>
         <TextBox x:Name="TxPath" HorizontalAlignment="Left" Height="23" Margin="440,50,0,0" TextWrapping="Wrap" Text="Nazwa pliku" VerticalAlignment="Top" Width="154"/>
+        <TextBlock x:Name="TxStatus" HorizontalAlignment="Left" Margin="440,78,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="154" Visibility="Hidden"/>
     </Grid>
 </Page>

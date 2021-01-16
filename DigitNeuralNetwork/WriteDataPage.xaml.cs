@@ -51,6 +51,7 @@ namespace DigitNeuralNetwork
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            TxStatus.Visibility = Visibility.Hidden;
             Button button = sender as Button;
             if (button.Background == Brushes.LightGray)
                 button.Background = Brushes.Black;
@@ -60,7 +61,7 @@ namespace DigitNeuralNetwork
 
         private void BtnClear_Click(object sender, RoutedEventArgs e)
         {
-
+            TxStatus.Visibility = Visibility.Hidden;
             foreach (var children in GridPixels.Children)
             {
                 Button pixel = children as Button;
@@ -84,23 +85,36 @@ namespace DigitNeuralNetwork
 
         private void BtnSavePixels_Click(object sender, RoutedEventArgs e)
         {
+            string errorCode = "";
             string path = TxPath.Text;
+            string subDirectory = "data";
             bool[] pixels = GetPixelsValues().ToArray();
             //byte[] bytes = Array.ConvertAll(pixels, b => b ? (byte)1 : (byte)0);
             IEnumerable<byte> bytes = Array.ConvertAll(pixels, b => b ? (byte)1 : (byte)0);
             IEnumerable<byte> bytesFromFile = Enumerable.Empty<byte>();
+            if(!Directory.Exists(subDirectory))
+            {
+                Directory.CreateDirectory(subDirectory);
+            }
             try
             {
-                bytesFromFile = File.ReadAllBytes(path + ".bin");
+                bytesFromFile = File.ReadAllBytes(subDirectory + "\\" + path + ".bin");
+                errorCode = "Dopisano do pliku!";
+                TxStatus.Foreground = Brushes.Green;
             }
             catch (FileNotFoundException ex)
             {
                 Console.WriteLine("Nie znaleziono pliku");
+                errorCode = "Utworzono i poprawnie zapisano plik!";
+                TxStatus.Foreground = Brushes.Green;
             }
+
+            TxStatus.Text = errorCode;
+            TxStatus.Visibility = Visibility.Visible;
 
             IEnumerable<byte> bytesToWrite = bytesFromFile.Concat(bytes);
 
-            File.WriteAllBytes(path + ".bin", bytesToWrite.ToArray());
+            File.WriteAllBytes(subDirectory + "\\" + path + ".bin", bytesToWrite.ToArray());
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

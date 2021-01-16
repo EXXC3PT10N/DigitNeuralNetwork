@@ -22,11 +22,6 @@ namespace DigitNeuralNetwork
     }
     class Category
     {
-        public class LabeledImage
-        {
-            public List<byte> pixels = new List<byte>();
-            public categories category;
-        }
 
         
         List<LabeledImage> training = new List<LabeledImage>();
