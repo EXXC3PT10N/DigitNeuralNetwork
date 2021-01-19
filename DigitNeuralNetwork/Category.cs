@@ -61,7 +61,7 @@ namespace DigitNeuralNetwork
 
             for (int i = 0; i < total; i++)             //Iteracja obrazow
             {
-                if (i < Math.Floor(0.8 * total))
+                if (i < Math.Floor(0.7 * total))
                 {
                     training.Add(new LabeledImage());
                 }
@@ -72,7 +72,7 @@ namespace DigitNeuralNetwork
 
                 for (int j = 0; j < offset; j++)        //Iteracja pixeli w obrazie
                 {
-                    if(i < Math.Floor(0.8 * total))
+                    if(i < Math.Floor(0.7 * total))
                     {
                         training.Last().pixels.Add(data[j + (offset * i)]);
                         training.Last().category = label;

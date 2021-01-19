@@ -9,7 +9,46 @@
       Title="NeuralVisualizer">
 
     <Grid>
-        <TextBlock x:Name="TxWeights" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <Border BorderBrush="Black" BorderThickness="5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,12,0,0">
+            <Grid x:Name="GridPixels" HorizontalAlignment="Left" Height="400" Margin="0,0,0,0" VerticalAlignment="Top" Width="400">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+            </Grid>
+        </Border>
+        <Button x:Name="BtnTrain" Content="Trenuj" HorizontalAlignment="Left" Margin="554,98,0,0" VerticalAlignment="Top" Width="74" Click="BtnTrain_Click" IsEnabled="False"/>
+        <Button x:Name="BtnStop" Content="Zatrzymaj" HorizontalAlignment="Left" Margin="633,98,0,0" VerticalAlignment="Top" Width="76" Click="BtnStop_Click" IsEnabled="False"/>
+        <Button x:Name="BtnLoadData" Content="Wczytaj dane" HorizontalAlignment="Left" Margin="714,98,0,0" VerticalAlignment="Top" Width="76" Click="BtnLoadData_Click"/>
+        <Button x:Name="BtnTest" Content="Testuj" HorizontalAlignment="Left" Margin="474,98,0,0" VerticalAlignment="Top" Width="75" Click="BtnTest_Click" IsEnabled="False"/>
+        <TextBlock x:Name="TxNeurons" HorizontalAlignment="Left" Margin="746,20,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <Slider x:Name="SldNeurons" HorizontalAlignment="Left" Margin="607,23,0,0" VerticalAlignment="Top" Width="139" Minimum="1" Maximum="100" Value="16" AutoToolTipPlacement="TopLeft" IsSnapToTickEnabled="True" TickFrequency="1" ValueChanged="Slider_ValueChanged"/>
+        <Label Content="Neurony" HorizontalAlignment="Left" Margin="527,15,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="TxLr" HorizontalAlignment="Left" Margin="746,51,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <Slider x:Name="SldLr" HorizontalAlignment="Left" Margin="607,54,0,0" VerticalAlignment="Top" Width="139" Minimum="0.01" Maximum="1" Value="0.2" AutoToolTipPlacement="TopLeft" TickFrequency="0.01" ValueChanged="SldLr_ValueChanged" />
+        <Label Content="Learning rate" HorizontalAlignment="Left" Margin="527,46,0,0" VerticalAlignment="Top" />
+        <TextBlock HorizontalAlignment="Left" Margin="474,138,0,0" TextWrapping="Wrap" Text="Wynik: " VerticalAlignment="Top"/>
+        <TextBlock x:Name="TxResult" HorizontalAlignment="Left" Margin="558,138,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <Button x:Name="BtnClear" Content="Wyczyść" HorizontalAlignment="Left" Margin="715,139,0,0" VerticalAlignment="Top" Width="75" Click="BtnClear_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="474,160,0,0" TextWrapping="Wrap" Text="Poziom błędu: " VerticalAlignment="Top"/>
+        <TextBlock x:Name="TxError" HorizontalAlignment="Left" Margin="558,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text=""/>
         <!--<Button x:Name="BtnOpenFile" Content="Button" HorizontalAlignment="Left" Margin="130,10,0,0" VerticalAlignment="Top" Width="76" Click="BtnOpenFile_Click"/>-->
 
     </Grid>
