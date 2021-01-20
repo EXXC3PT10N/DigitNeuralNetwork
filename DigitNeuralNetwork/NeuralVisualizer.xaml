@@ -8,6 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="NeuralVisualizer">
 
+    
     <Grid>
         <Border BorderBrush="Black" BorderThickness="5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,12,0,0">
             <Grid x:Name="GridPixels" HorizontalAlignment="Left" Height="400" Margin="0,0,0,0" VerticalAlignment="Top" Width="400">
@@ -42,13 +43,14 @@
         <Slider x:Name="SldNeurons" HorizontalAlignment="Left" Margin="607,23,0,0" VerticalAlignment="Top" Width="139" Minimum="1" Maximum="100" Value="16" AutoToolTipPlacement="TopLeft" IsSnapToTickEnabled="True" TickFrequency="1" ValueChanged="Slider_ValueChanged"/>
         <Label Content="Neurony" HorizontalAlignment="Left" Margin="527,15,0,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="TxLr" HorizontalAlignment="Left" Margin="746,51,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-        <Slider x:Name="SldLr" HorizontalAlignment="Left" Margin="607,54,0,0" VerticalAlignment="Top" Width="139" Minimum="0.01" Maximum="1" Value="0.2" AutoToolTipPlacement="TopLeft" TickFrequency="0.01" ValueChanged="SldLr_ValueChanged" />
+        <Slider x:Name="SldLr" HorizontalAlignment="Left" Margin="607,54,0,0" VerticalAlignment="Top" Width="139" Minimum="0.01" Maximum="1" Value="0.03" AutoToolTipPlacement="TopLeft" TickFrequency="0.01" ValueChanged="SldLr_ValueChanged" />
         <Label Content="Learning rate" HorizontalAlignment="Left" Margin="527,46,0,0" VerticalAlignment="Top" />
         <TextBlock HorizontalAlignment="Left" Margin="474,138,0,0" TextWrapping="Wrap" Text="Wynik: " VerticalAlignment="Top"/>
         <TextBlock x:Name="TxResult" HorizontalAlignment="Left" Margin="558,138,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
         <Button x:Name="BtnClear" Content="Wyczyść" HorizontalAlignment="Left" Margin="715,139,0,0" VerticalAlignment="Top" Width="75" Click="BtnClear_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="474,160,0,0" TextWrapping="Wrap" Text="Poziom błędu: " VerticalAlignment="Top"/>
         <TextBlock x:Name="TxError" HorizontalAlignment="Left" Margin="558,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text=""/>
+        <ProgressBar x:Name="PgBarTrain"  HorizontalAlignment="Left" Height="10" Margin="474,219,0,0" VerticalAlignment="Top" Width="316" Value="0"/>
         <!--<Button x:Name="BtnOpenFile" Content="Button" HorizontalAlignment="Left" Margin="130,10,0,0" VerticalAlignment="Top" Width="76" Click="BtnOpenFile_Click"/>-->
 
     </Grid>

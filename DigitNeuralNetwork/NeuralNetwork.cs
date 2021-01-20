@@ -151,7 +151,8 @@ namespace DigitNeuralNetwork
                 for(int j = 0; j < inputNodes; j++)
                 {
                     //weightsIH.Last().Add(rnd.NextDouble() - 0.5);
-                    weightsIH[i,j] = rnd.NextDouble() - 0.5;
+                    //weightsIH[i,j] = rnd.NextDouble() - 0.5;
+                    weightsIH[i,j] = rnd.NextDouble() * 2 - 1;
                 }
             }
 
@@ -164,7 +165,8 @@ namespace DigitNeuralNetwork
                 for (int j = 0; j < hiddenNodes; j++)
                 {
                     //weightsHO.Last().Add(rnd.NextDouble() - 0.5);
-                    weightsHO[i, j] = rnd.NextDouble() - 0.5;
+                    //weightsHO[i, j] = rnd.NextDouble() - 0.5;
+                    weightsHO[i, j] = rnd.NextDouble() * 2 - 1;
                 }
             }
 
@@ -179,11 +181,13 @@ namespace DigitNeuralNetwork
             Random rnd = new Random();
             for (int i = 0; i < hiddenNodes; i++)
             {
-                biasHArr[i, 0] = rnd.NextDouble() - 0.5;
+                //biasHArr[i, 0] = rnd.NextDouble() - 0.5;
+                biasHArr[i, 0] = rnd.NextDouble() * 2 - 1;
             }
             for (int i = 0; i < outputNodes; i++)
             {
-                biasOArr[i, 0] = rnd.NextDouble() - 0.5;
+                //biasOArr[i, 0] = rnd.NextDouble() - 0.5;
+                biasOArr[i, 0] = rnd.NextDouble() * 2 - 1;
             }
             this.biasH = DenseMatrix.OfArray(biasHArr);
             this.biasO = DenseMatrix.OfArray(biasOArr);

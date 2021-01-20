@@ -42,101 +42,9 @@ namespace DigitNeuralNetwork
             InitializeComponent();
             InitializePixels();
           
-
-
-
-            
-
             //Making neural network
             nn = new NeuralNetwork(NUM_OF_PIXELS, hiddenNeurons, NUM_OF_DATA, learningRate);
-
-            //var initialWIH = nn.GetWeightsIH();
-            //var initialWHO = nn.GetWeightsHO();
-
             
-            ////***************************************
-
-            ////TRAINING
-            //int incorrects = 4;
-            //double error = 100;
-            //int stop = 0;
-            //while(error > 10 && stop < 10000)
-            //{
-            //    stop++;
-            //    int count = 0;
-            //    incorrects = 0;
-            //    //TRAINING
-            //    foreach (var item in training)
-            //    {
-            //        double[,] inputData = new double[64, 1];
-            //        for (int i = 0; i < 64; i++)
-            //        {
-            //            inputData[i, 0] = item.pixels[i];
-            //        }
-            //        double[,] target = new double[10, 1] { { 0 }, { 0 }, { 0 }, { 0 }, { 0 }, { 0 }, { 0 }, { 0 }, { 0 }, { 0 } };
-            //        target[(int)item.category, 0] = 1;
-            //        nn.Train(inputData, target);
-            //        //Console.WriteLine("############################TARGETS############################");
-            //        //foreach (var tar in target)
-            //        //{
-            //        //    Console.Write(" " + tar + " ");
-            //        //}
-            //        //Console.WriteLine("###############################################################");
-            //    }
-            //    //TESTING
-            //    foreach (var test in testing)
-            //    {
-            //        count++;
-            //        double[,] inputData = new double[64, 1];
-            //        for (int i = 0; i < 64; i++)
-            //        {
-            //            inputData[i, 0] = test.pixels[i];
-            //        }
-
-            //        double[,] wynik = nn.Query(inputData);
-
-            //        var m = wynik[0, 0];
-            //        foreach (var w in wynik)
-            //        {
-            //            m = Math.Max(m, w);
-            //        }
-
-            //        List<double> asd = wynik.Cast<double>().ToList();
-            //        var guess = asd.IndexOf(m);
-            //        var real = test.category;
-            //        if (guess == (int)real)
-            //        {
-            //            Console.WriteLine("!!!Correct! guess: " + guess + ", real: " + real);
-            //        }
-            //        else
-            //        {
-            //            incorrects++;
-            //            Console.WriteLine("!!!INCORRECT! guess: " + guess + ", real: " + real);
-            //        }
-
-            //    }
-            //    //i == 100
-            //    //in == x 
-            //    //x i = in 100
-            //     error = (double) incorrects / (double) count * 100;
-            //    Console.WriteLine("BŁĄD: " + error);
-
-            //}
-
-            //Console.WriteLine("Iteracje: " + stop);
-            //Console.WriteLine("END");
-
-
-            ////*********************************
-
-
-            ////ROZNICA W WAGACH
-            //var endWIH = nn.GetWeightsIH();
-            //var endWHO = nn.GetWeightsHO();
-
-          
-
-
         }
 
         void InitializePixels()
@@ -211,7 +119,7 @@ namespace DigitNeuralNetwork
             dataset.Add(new Category(bytes, label, numOfPixels));
         }
 
-        private void Train()
+        private double Train()
         {
 
 
@@ -239,10 +147,13 @@ namespace DigitNeuralNetwork
                 }
 
                 errorRate = Test();
-               
+                Application.Current.Dispatcher.BeginInvoke(
+                    DispatcherPriority.Background,
+                    new Action(() => this.PgBarTrain.Value = 100 - errorRate));
                 
-                Console.WriteLine(errorRate);
 
+                Console.WriteLine(errorRate);
+                
             }
 
             Console.WriteLine("Iteracje: " + iterations);
@@ -250,7 +161,8 @@ namespace DigitNeuralNetwork
 
             stopTraining = false;
             //*********************************
-
+            
+            return errorRate;
 
         }
 
@@ -300,9 +212,11 @@ namespace DigitNeuralNetwork
             BtnStop.IsEnabled = true;
             SldLr.IsEnabled = false;
             SldNeurons.IsEnabled = false;
-            await Task.Run(() => Train());
-             
+
+            double errorRate = await Task.Run(() => Train());
+            TxError.Text = Math.Round(errorRate, 2) + "%";
             
+
         }
 
         private void BtnStop_Click(object sender, RoutedEventArgs e)
